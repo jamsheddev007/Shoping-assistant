@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="Thoughtful pieces for a wardrobe that feels like you. Discover the StyleAI collection.">
+  <title>StyleAI | Dress like yourself</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="announcement">Complimentary shipping on orders over $150 <span aria-hidden="true">·</span> Thoughtfully chosen, always</div>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="StyleAI home">styleai<span>.</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#collection">Shop all</a>
+      <a href="#collection" data-nav-category="Clothing">Clothing</a>
+      <a href="#collection" data-nav-category="Accessories">Accessories</a>
+      <a href="#outfit">The edit</a>
+      <a href="#orders" data-page="orders">Orders</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button header-auth-trigger" id="login-trigger" type="button">Login</button>
+      <button class="icon-button header-auth-trigger" id="register-trigger" type="button">Register</button>
+      <button class="icon-button account-trigger" type="button" aria-label="Open account" title="Account" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c.7-3.3 3.1-5 7-5s6.3 1.7 7 5"></path></svg><span class="account-label"></span></button>
+      <button class="icon-button" id="logout-button" type="button" hidden>Logout</button>
+      <button class="icon-button bag-trigger" type="button" aria-label="Open shopping bag" title="Shopping bag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 12H4L5 8Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg><span class="bag-count" aria-label="0 items in bag">0</span></button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-image" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=2200&q=85" alt="Model in a flowing neutral outfit in warm afternoon light" data-fallback="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2200&q=85">
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">A little more you</p>
+        <h1 id="hero-title">Wear what<br>feels like <em>you.</em></h1>
+        <p>Considered pieces. Easy mornings.<br>A wardrobe that comes together naturally.</p>
+        <a class="button button-light" href="#collection">Discover the collection <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-caption"><span>01 / THE EARLY AUTUMN EDIT</span><span>Made for the in-between</span></div>
+    </section>
+
+    <section class="intro-strip" aria-label="Our approach">
+      <p>Less, but <em>better.</em></p><span class="strip-rule"></span><p>Pieces to keep. <em>Room to be.</em></p>
+    </section>
+
+    <section class="collection section-wrap" id="collection" aria-labelledby="collection-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">The considered collection</p><h2 id="collection-title">Good things, <em>well chosen.</em></h2></div>
+        <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"></circle><path d="m16 16 4 4"></path></svg><input id="product-search" type="search" placeholder="Find your something…" aria-label="Search products"></label>
+      </div>
+      <div class="collection-toolbar">
+        <div class="filter-list" role="group" aria-label="Filter products by category">
+          <button class="filter-button active" type="button" data-category="All" aria-pressed="true">Everything <span>08</span></button>
+          <button class="filter-button" type="button" data-category="Clothing" aria-pressed="false">Clothing</button>
+          <button class="filter-button" type="button" data-category="Accessories" aria-pressed="false">Accessories</button>
+          <button class="filter-button" type="button" data-category="Shoes" aria-pressed="false">Shoes</button>
+        </div>
+        <span class="results-count" id="results-count">8 pieces</span>
+      </div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <p class="empty-state" id="empty-state" hidden>No pieces found. Try another search.</p>
+    </section>
+
+    <section class="outfit-section" id="outfit" aria-labelledby="outfit-title">
+      <div class="outfit-photo"><img id="outfit-image" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1100&q=85" alt="Two friends wearing relaxed, considered city outfits" data-fallback="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1100&q=85"><span class="photo-note">THE STYLEAI EDIT / NO. 04</span></div>
+      <div class="outfit-copy"><p class="eyebrow">A good place to start</p><h2 id="outfit-title">A little outfit<br><em>inspiration.</em></h2><p class="outfit-description" id="outfit-description">A relaxed layer, a soft knit, and the kind of denim you reach for without thinking.</p><div class="outfit-picks" id="outfit-picks"></div><button class="text-button" id="suggest-outfit" type="button">Surprise me with another look <span aria-hidden="true">↗</span></button></div>
+    </section>
+
+    <section class="newsletter section-wrap" aria-labelledby="newsletter-title"><div><p class="eyebrow">Notes from the edit</p><h2 id="newsletter-title">A little good in your inbox.</h2></div><form id="newsletter-form" class="newsletter-form"><label class="visually-hidden" for="newsletter-email">Email address</label><input id="newsletter-email" type="email" placeholder="Your email address" required><button type="submit" aria-label="Subscribe">Join us <span aria-hidden="true">↗</span></button><p id="newsletter-message" class="newsletter-message" aria-live="polite"></p></form></section>
+
+    <section class="orders-page section-wrap" id="orders" aria-labelledby="orders-title" hidden>
+      <div class="orders-heading"><p class="eyebrow">Kept close, always</p><h1 id="orders-title">Your <em>orders.</em></h1></div>
+      <div class="orders-content" id="orders-content" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="wordmark footer-wordmark" href="#home">styleai<span>.</span></a><p>Get dressed. Feel like yourself.</p><div class="footer-links"><a href="#collection">Shop</a><a href="#outfit">Our edit</a><a href="mailto:hello@styleai.example">Contact</a></div><small>© 2026 StyleAI Studio. Thoughtfully made for everyday.</small></footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="bag-drawer" id="bag-drawer" aria-labelledby="bag-title" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">Your little collection</p><h2 id="bag-title">Shopping bag <span id="drawer-item-count">(0)</span></h2></div><button class="close-button" type="button" data-close aria-label="Close shopping bag">×</button></div>
+    <div class="bag-items" id="bag-items"></div>
+    <div class="bag-empty" id="bag-empty"><span class="bag-empty-icon" aria-hidden="true">✳</span><p>Your bag is taking a quiet moment.</p><button type="button" class="text-button" data-close>Find something lovely <span aria-hidden="true">↗</span></button></div>
+    <div class="bag-summary" id="bag-summary"><p><span>Subtotal</span><strong id="bag-subtotal">$0.00</strong></p><small>Shipping and taxes calculated at checkout.</small><button class="button button-dark checkout-button" type="button" id="checkout-button">Continue to checkout <span aria-hidden="true">↗</span></button><button class="text-button continue-shopping" type="button" data-close>Keep looking</button></div>
+  </aside>
+
+  <section class="auth-modal" id="auth-modal" aria-labelledby="auth-title" aria-modal="true" role="dialog" aria-hidden="true">
+    <button class="close-button auth-close" type="button" data-close aria-label="Close account dialog">×</button>
+    <p class="eyebrow">A little space just for you</p><h2 id="auth-title">Welcome <em>back.</em></h2>
+    <div class="auth-tabs" role="tablist" aria-label="Account access"><button class="auth-tab active" type="button" role="tab" aria-selected="true" data-auth-mode="login">Sign in</button><button class="auth-tab" type="button" role="tab" aria-selected="false" data-auth-mode="register">Create account</button></div>
+    <form id="auth-form"><label for="auth-email">Email address</label><input id="auth-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><label for="auth-password">Password</label><input id="auth-password" name="password" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters" required><p id="auth-message" class="auth-message" aria-live="polite"></p><button class="button button-dark auth-submit" id="auth-submit" type="submit">Sign in <span aria-hidden="true">↗</span></button></form>
+    <p class="demo-note">Demo account: <strong>hello@styleai.com</strong> / <strong>styleai123</strong></p>
+  </section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
